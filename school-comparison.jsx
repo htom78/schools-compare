@@ -107,7 +107,7 @@ const schoolsData = [
   {
     id: 2, name: "Charles Campbell College",
     nameZh: "查尔斯坎贝尔学院", nameJa: "チャールズキャンベルカレッジ", nameEn: "Charles Campbell College",
-    website: "https://www.charlescampbell.sa.edu.au",
+    website: "https://www.ccc.sa.edu.au",
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "coed", isPrivate: false, founded: 1992, students: 850, intlStudents: 50, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
@@ -159,7 +159,7 @@ const schoolsData = [
   {
     id: 6, name: "Onehanga High School",
     nameZh: "奥尼杭阿高中", nameJa: "オネハンガハイスクール", nameEn: "Onehanga High School",
-    website: "https://www.onehunga.school.nz",
+    website: "https://www.ohs.school.nz",
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1959, students: 1000, intlStudents: 40, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -172,7 +172,7 @@ const schoolsData = [
   {
     id: 7, name: "Henderson High School",
     nameZh: "亨德森高中", nameJa: "ヘンダーソンハイスクール", nameEn: "Henderson High School",
-    website: "https://www.henderson.school.nz",
+    website: "https://hhs.wcasd.net",
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1953, students: 900, intlStudents: 30, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
