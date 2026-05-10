@@ -15,6 +15,7 @@ const t = {
     cultureEnv: "人文环境", schoolHistory: "学校历史", academicQuality: "学术素质",
     analysisTitle: "分析与建议", livabilityScore: "宜居评分", climateType: "类型",
     gradeLabel: "年级", privateSchool: "私立", publicSchool: "公立",
+    website: "访问官网", websiteHint: "在新标签页打开",
     rec1Title: "如果重视学术传统和历史底蕴",
     rec1Body: "Auckland Girls' Grammar School（1888年创立）是首选。138年历史，新西兰最古老的女子校之一。2025年NCEA合格率高达97.5%，近年学术水平急剧提升。管弦乐团和全球化视野教育也是亮点。",
     rec2Title: "如果重视气候舒适和城市宜居",
@@ -43,6 +44,7 @@ const t = {
     cultureEnv: "人文環境", schoolHistory: "学校の歴史", academicQuality: "学術レベル",
     analysisTitle: "分析とアドバイス", livabilityScore: "住みやすさスコア", climateType: "タイプ",
     gradeLabel: "年生", privateSchool: "私立", publicSchool: "公立",
+    website: "公式サイト", websiteHint: "新しいタブで開く",
     rec1Title: "学術伝統と歴史を重視するなら",
     rec1Body: "Auckland Girls' Grammar School（1888年創立）が最有力。138年の歴史を持つNZ最古の女子校の一つ。2025年NCEA合格率は97.5%に達し、近年学力が急上昇。管弦楽団やグローバル教育も充実。",
     rec2Title: "気候の快適さと都市の住みやすさを重視するなら",
@@ -71,6 +73,7 @@ const t = {
     cultureEnv: "Culture", schoolHistory: "History", academicQuality: "Academics",
     analysisTitle: "Analysis & Recommendations", livabilityScore: "Livability", climateType: "Type",
     gradeLabel: " grades", privateSchool: "Private", publicSchool: "Public",
+    website: "Visit Website", websiteHint: "Opens in new tab",
     rec1Title: "For academic tradition and heritage",
     rec1Body: "Auckland Girls' Grammar School (est. 1888) stands out. 138 years of history, one of NZ's oldest girls' schools. 2025 NCEA pass rate reached 97.5%, with rapid academic improvement in recent years. Strong orchestra and global education programs.",
     rec2Title: "For comfortable climate and livability",
@@ -91,6 +94,7 @@ const schoolsData = [
   {
     id: 1, name: "Mitcham Girls High School",
     nameZh: "米查姆女子高中", nameJa: "ミッチャムガールズハイスクール", nameEn: "Mitcham Girls High School",
+    website: "https://www.mghs.sa.edu.au",
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "girls", isPrivate: false, founded: 1964, students: 830, intlStudents: 20, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
@@ -103,6 +107,7 @@ const schoolsData = [
   {
     id: 2, name: "Charles Campbell College",
     nameZh: "查尔斯坎贝尔学院", nameJa: "チャールズキャンベルカレッジ", nameEn: "Charles Campbell College",
+    website: "https://www.charlescampbell.sa.edu.au",
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "coed", isPrivate: false, founded: 1992, students: 850, intlStudents: 50, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
@@ -115,6 +120,7 @@ const schoolsData = [
   {
     id: 3, name: "Mitchelton State High School",
     nameZh: "米切尔顿州立高中", nameJa: "ミッチェルトンステイトハイスクール", nameEn: "Mitchelton State High School",
+    website: "https://mitcheltonshs.eq.edu.au",
     country: "AU", city: "Brisbane", cityZh: "布里斯班", cityJa: "ブリスベン", cityEn: "Brisbane",
     type: "coed", isPrivate: false, founded: 1956, students: 500, intlStudents: 30, grades: "7–12",
     climate: { summer: "21–30°C", winter: "11–21°C", typeZh: "亚热带", typeJa: "亜熱帯", typeEn: "Subtropical", rainZh: "夏季较多", rainJa: "夏に多い", rainEn: "Heavy in summer", humidityZh: "中〜高", humidityJa: "中〜高", humidityEn: "Medium–High" },
@@ -127,6 +133,7 @@ const schoolsData = [
   {
     id: 4, name: "Kedron State High School",
     nameZh: "凯德隆州立高中", nameJa: "ケドロンステイトハイスクール", nameEn: "Kedron State High School",
+    website: "https://kedronshs.eq.edu.au",
     country: "AU", city: "Brisbane", cityZh: "布里斯班", cityJa: "ブリスベン", cityEn: "Brisbane",
     type: "coed", isPrivate: false, founded: 1956, students: 1500, intlStudents: 45, grades: "7–12",
     climate: { summer: "21–30°C", winter: "11–21°C", typeZh: "亚热带", typeJa: "亜熱帯", typeEn: "Subtropical", rainZh: "夏季较多", rainJa: "夏に多い", rainEn: "Heavy in summer", humidityZh: "中〜高", humidityJa: "中〜高", humidityEn: "Medium–High" },
@@ -139,6 +146,7 @@ const schoolsData = [
   {
     id: 5, name: "Auckland Girls' Grammar School",
     nameZh: "奥克兰女子文法学校", nameJa: "オークランドガールズグラマースクール", nameEn: "Auckland Girls' Grammar School",
+    website: "https://www.aggs.school.nz",
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "girls", isPrivate: false, founded: 1888, students: 1000, intlStudents: 30, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -151,6 +159,7 @@ const schoolsData = [
   {
     id: 6, name: "Onehanga High School",
     nameZh: "奥尼杭阿高中", nameJa: "オネハンガハイスクール", nameEn: "Onehanga High School",
+    website: "https://www.onehunga.school.nz",
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1959, students: 1000, intlStudents: 40, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -163,6 +172,7 @@ const schoolsData = [
   {
     id: 7, name: "Henderson High School",
     nameZh: "亨德森高中", nameJa: "ヘンダーソンハイスクール", nameEn: "Henderson High School",
+    website: "https://www.henderson.school.nz",
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1953, students: 900, intlStudents: 30, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -175,6 +185,7 @@ const schoolsData = [
   {
     id: 8, name: "Hugh Boyd Secondary School",
     nameZh: "休博伊德中学", nameJa: "ヒューボイドセカンダリースクール", nameEn: "Hugh Boyd Secondary School",
+    website: "https://boyd.sd38.bc.ca",
     country: "CA", city: "Vancouver", cityZh: "温哥华（里士满）", cityJa: "バンクーバー（リッチモンド）", cityEn: "Vancouver (Richmond)",
     type: "coed", isPrivate: false, founded: 1960, students: 700, intlStudents: 50, grades: "8–12",
     climate: { summer: "14–22°C", winter: "1–7°C", typeZh: "海洋性", typeJa: "海洋性", typeEn: "Oceanic", rainZh: "冬季多", rainJa: "冬に多い", rainEn: "Heavy in winter", humidityZh: "高", humidityJa: "高い", humidityEn: "High" },
@@ -187,6 +198,7 @@ const schoolsData = [
   {
     id: 9, name: "Brookswood Secondary School",
     nameZh: "布鲁克斯伍德中学", nameJa: "ブルックスウッドセカンダリースクール", nameEn: "Brookswood Secondary School",
+    website: "https://brookswood.sd35.bc.ca",
     country: "CA", city: "Vancouver", cityZh: "温哥华（兰利）", cityJa: "バンクーバー（ラングレー）", cityEn: "Vancouver (Langley)",
     type: "coed", isPrivate: false, founded: null, students: 1100, intlStudents: 140, grades: "8–12",
     climate: { summer: "14–22°C", winter: "1–7°C", typeZh: "海洋性", typeJa: "海洋性", typeEn: "Oceanic", rainZh: "冬季多", rainJa: "冬に多い", rainEn: "Heavy in winter", humidityZh: "高", humidityJa: "高い", humidityEn: "High" },
@@ -199,6 +211,7 @@ const schoolsData = [
   {
     id: 10, name: "King's Way Christian School",
     nameZh: "国王之路基督教学校", nameJa: "キングスウェイクリスチャンスクール", nameEn: "King's Way Christian School",
+    website: "https://www.kwcs.org",
     country: "US", city: "Portland", cityZh: "波特兰", cityJa: "ポートランド", cityEn: "Portland",
     type: "coed", isPrivate: true, founded: 1971, students: 1100, intlStudents: 20, grades: "K–12",
     climate: { summer: "14–28°C", winter: "2–7°C", typeZh: "地中海（温暖夏季型）", typeJa: "地中海性（温暖な夏）", typeEn: "Mediterranean (warm summer)", rainZh: "冬季多·夏季极少", rainJa: "冬に多く夏はほぼなし", rainEn: "Very wet winters, dry summers", humidityZh: "冬高·夏中", humidityJa: "冬は高く夏は中程度", humidityEn: "High winter, moderate summer" },
@@ -448,6 +461,29 @@ export default function App() {
                     </div>
                     <h2 style={{ fontSize: 18, fontWeight: 600, margin: "6px 0 2px", fontFamily: serifFont }}>{selected.name}</h2>
                     {lang !== "en" && <div style={{ fontSize: 13, color: "#6B5D4D" }}>{getLocal(selected, lang, "name")}</div>}
+                    {selected.website && (
+                      <a
+                        href={selected.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={L.websiteHint}
+                        style={{
+                          display: "inline-flex", alignItems: "center", gap: 6,
+                          marginTop: 10, padding: "5px 10px",
+                          fontSize: 11, letterSpacing: "0.05em",
+                          color: "#A8895C", textDecoration: "none",
+                          backgroundColor: "#FAF8F3",
+                          border: "1px solid rgba(168, 137, 92, 0.3)",
+                          borderRadius: 2,
+                          transition: "all 200ms cubic-bezier(0.4, 0, 0.2, 1)",
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#F0EBE0"; e.currentTarget.style.borderColor = "#A8895C"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#FAF8F3"; e.currentTarget.style.borderColor = "rgba(168, 137, 92, 0.3)"; }}
+                      >
+                        <span>{L.website}</span>
+                        <span aria-hidden="true" style={{ fontSize: 10 }}>↗</span>
+                      </a>
+                    )}
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 18 }}>
                     {[{ val: selected.students, label: L.students }, { val: selected.intlStudents, label: L.intl }, { val: selected.founded || "—", label: L.founded }].map((d, i) => (
