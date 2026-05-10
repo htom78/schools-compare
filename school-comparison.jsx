@@ -172,7 +172,7 @@ const schoolsData = [
   {
     id: 7, name: "Henderson High School",
     nameZh: "亨德森高中", nameJa: "ヘンダーソンハイスクール", nameEn: "Henderson High School",
-    website: "https://www.henderson.school.nz",
+    website: "https://www.hhs.school.nz/",
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1953, students: 900, intlStudents: 30, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
