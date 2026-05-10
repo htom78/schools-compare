@@ -198,7 +198,7 @@ const schoolsData = [
   {
     id: 9, name: "Brookswood Secondary School",
     nameZh: "布鲁克斯伍德中学", nameJa: "ブルックスウッドセカンダリースクール", nameEn: "Brookswood Secondary School",
-    website: "https://brookswood.sd35.bc.ca",
+    website: "https://www.sd35.bc.ca/bss",
     country: "CA", city: "Vancouver", cityZh: "温哥华（兰利）", cityJa: "バンクーバー（ラングレー）", cityEn: "Vancouver (Langley)",
     type: "coed", isPrivate: false, founded: null, students: 1100, intlStudents: 140, grades: "8–12",
     climate: { summer: "14–22°C", winter: "1–7°C", typeZh: "海洋性", typeJa: "海洋性", typeEn: "Oceanic", rainZh: "冬季多", rainJa: "冬に多い", rainEn: "Heavy in winter", humidityZh: "高", humidityJa: "高い", humidityEn: "High" },
