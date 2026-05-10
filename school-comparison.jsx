@@ -16,6 +16,9 @@ const t = {
     analysisTitle: "分析与建议", livabilityScore: "宜居评分", climateType: "类型",
     gradeLabel: "年级", privateSchool: "私立", publicSchool: "公立",
     website: "访问官网", websiteHint: "在新标签页打开",
+    jtbTitle: "JTB 留学方案 · 概算料金", jtbDeparture: "2027年1月出发",
+    jtbDuration: "期间", jtbSchedule: "日程", jtbFee: "料金",
+    jtbDisclaimer: "※ 概算金额，含住宿、机票等。实际费用请咨询 JTB。来源：神田女学园 2026 年度概算料金表。",
     rec1Title: "如果重视学术传统和历史底蕴",
     rec1Body: "Auckland Girls' Grammar School（1888年创立）是首选。138年历史，新西兰最古老的女子校之一。2025年NCEA合格率高达97.5%，近年学术水平急剧提升。管弦乐团和全球化视野教育也是亮点。",
     rec2Title: "如果重视气候舒适和城市宜居",
@@ -45,6 +48,9 @@ const t = {
     analysisTitle: "分析とアドバイス", livabilityScore: "住みやすさスコア", climateType: "タイプ",
     gradeLabel: "年生", privateSchool: "私立", publicSchool: "公立",
     website: "公式サイト", websiteHint: "新しいタブで開く",
+    jtbTitle: "JTB 留学プラン · 概算料金", jtbDeparture: "2027年1月出発",
+    jtbDuration: "期間", jtbSchedule: "日程", jtbFee: "料金",
+    jtbDisclaimer: "※ 概算金額（宿泊・航空券等を含む）。実際の費用はJTBへお問い合わせください。出典：神田女学園2026年度概算料金表。",
     rec1Title: "学術伝統と歴史を重視するなら",
     rec1Body: "Auckland Girls' Grammar School（1888年創立）が最有力。138年の歴史を持つNZ最古の女子校の一つ。2025年NCEA合格率は97.5%に達し、近年学力が急上昇。管弦楽団やグローバル教育も充実。",
     rec2Title: "気候の快適さと都市の住みやすさを重視するなら",
@@ -74,6 +80,9 @@ const t = {
     analysisTitle: "Analysis & Recommendations", livabilityScore: "Livability", climateType: "Type",
     gradeLabel: " grades", privateSchool: "Private", publicSchool: "Public",
     website: "Visit Website", websiteHint: "Opens in new tab",
+    jtbTitle: "JTB Programs · Estimated Fees", jtbDeparture: "Departure: Jan 2027",
+    jtbDuration: "Duration", jtbSchedule: "Schedule", jtbFee: "Fee",
+    jtbDisclaimer: "* Estimated fee (incl. lodging, flights). Confirm details with JTB. Source: Kanda Joshi Gakuen 2026 fee sheet.",
     rec1Title: "For academic tradition and heritage",
     rec1Body: "Auckland Girls' Grammar School (est. 1888) stands out. 138 years of history, one of NZ's oldest girls' schools. 2025 NCEA pass rate reached 97.5%, with rapid academic improvement in recent years. Strong orchestra and global education programs.",
     rec2Title: "For comfortable climate and livability",
@@ -90,11 +99,24 @@ const t = {
   },
 };
 
+const jtbScheduleAU = [
+  { months: 3, scheduleZh: "2027/1月下旬 ~ 4月上旬", scheduleJa: "2027/1月下旬〜4月上旬", scheduleEn: "Late Jan – Early Apr 2027" },
+  { months: 6, scheduleZh: "2027/1月下旬 ~ 7月上旬", scheduleJa: "2027/1月下旬〜7月上旬", scheduleEn: "Late Jan – Early Jul 2027" },
+  { months: 12, scheduleZh: "2027/1月下旬 ~ 12月上旬", scheduleJa: "2027/1月下旬〜12月上旬", scheduleEn: "Late Jan – Early Dec 2027" },
+];
+const jtbScheduleCA = [
+  { months: 3, scheduleZh: "2027/1月下旬 ~ 4月上旬", scheduleJa: "2027/1月下旬〜4月上旬", scheduleEn: "Late Jan – Early Apr 2027" },
+  { months: 5, scheduleZh: "2027/1月下旬 ~ 6月中旬", scheduleJa: "2027/1月下旬〜6月中旬", scheduleEn: "Late Jan – Mid Jun 2027" },
+  { months: 12, scheduleZh: "2027/1月下旬 ~ 2028/1月下旬", scheduleJa: "2027/1月下旬〜2028/1月下旬", scheduleEn: "Late Jan 2027 – Late Jan 2028" },
+];
+const jtbBuild = (base, fees) => base.map((b, i) => ({ ...b, feeManYen: fees[i] }));
+
 const schoolsData = [
   {
     id: 1, name: "Mitcham Girls High School",
     nameZh: "米查姆女子高中", nameJa: "ミッチャムガールズハイスクール", nameEn: "Mitcham Girls High School",
     website: "https://www.mitchamgirlshs.sa.edu.au",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [161.5, 277.3, 489.4]),
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "girls", isPrivate: false, founded: 1964, students: 830, intlStudents: 20, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
@@ -134,6 +156,7 @@ const schoolsData = [
     id: 4, name: "Kedron State High School",
     nameZh: "凯德隆州立高中", nameJa: "ケドロンステイトハイスクール", nameEn: "Kedron State High School",
     website: "https://kedronshs.eq.edu.au",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [172.5, 299.8, 541.5]),
     country: "AU", city: "Brisbane", cityZh: "布里斯班", cityJa: "ブリスベン", cityEn: "Brisbane",
     type: "coed", isPrivate: false, founded: 1956, students: 1500, intlStudents: 45, grades: "7–12",
     climate: { summer: "21–30°C", winter: "11–21°C", typeZh: "亚热带", typeJa: "亜熱帯", typeEn: "Subtropical", rainZh: "夏季较多", rainJa: "夏に多い", rainEn: "Heavy in summer", humidityZh: "中〜高", humidityJa: "中〜高", humidityEn: "Medium–High" },
@@ -147,6 +170,7 @@ const schoolsData = [
     id: 5, name: "Auckland Girls' Grammar School",
     nameZh: "奥克兰女子文法学校", nameJa: "オークランドガールズグラマースクール", nameEn: "Auckland Girls' Grammar School",
     website: "https://www.aggs.school.nz",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [168.5, 292.5, 496.8]),
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "girls", isPrivate: false, founded: 1888, students: 1000, intlStudents: 30, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -160,6 +184,7 @@ const schoolsData = [
     id: 6, name: "Onehanga High School",
     nameZh: "奥尼杭阿高中", nameJa: "オネハンガハイスクール", nameEn: "Onehanga High School",
     website: "https://www.ohs.school.nz",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [158.7, 265.5, 475.5]),
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1959, students: 1000, intlStudents: 40, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -173,6 +198,7 @@ const schoolsData = [
     id: 7, name: "Henderson High School",
     nameZh: "亨德森高中", nameJa: "ヘンダーソンハイスクール", nameEn: "Henderson High School",
     website: "https://www.hhs.school.nz/",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [155.7, 265.5, 464.9]),
     country: "NZ", city: "Auckland", cityZh: "奥克兰", cityJa: "オークランド", cityEn: "Auckland",
     type: "coed", isPrivate: false, founded: 1953, students: 900, intlStudents: 30, grades: "9–13",
     climate: { summer: "13–23°C", winter: "10–15°C", typeZh: "温暖海洋性", typeJa: "温暖海洋性", typeEn: "Temperate oceanic", rainZh: "全年分布", rainJa: "年間通じて", rainEn: "Year-round", humidityZh: "中", humidityJa: "中程度", humidityEn: "Medium" },
@@ -186,6 +212,7 @@ const schoolsData = [
     id: 8, name: "Hugh Boyd Secondary School",
     nameZh: "休博伊德中学", nameJa: "ヒューボイドセカンダリースクール", nameEn: "Hugh Boyd Secondary School",
     website: "https://boyd.sd38.bc.ca",
+    jtbPrograms: jtbBuild(jtbScheduleCA, [217.3, 297.8, 529.1]),
     country: "CA", city: "Vancouver", cityZh: "温哥华（里士满）", cityJa: "バンクーバー（リッチモンド）", cityEn: "Vancouver (Richmond)",
     type: "coed", isPrivate: false, founded: 1960, students: 700, intlStudents: 50, grades: "8–12",
     climate: { summer: "14–22°C", winter: "1–7°C", typeZh: "海洋性", typeJa: "海洋性", typeEn: "Oceanic", rainZh: "冬季多", rainJa: "冬に多い", rainEn: "Heavy in winter", humidityZh: "高", humidityJa: "高い", humidityEn: "High" },
@@ -199,6 +226,7 @@ const schoolsData = [
     id: 9, name: "Brookswood Secondary School",
     nameZh: "布鲁克斯伍德中学", nameJa: "ブルックスウッドセカンダリースクール", nameEn: "Brookswood Secondary School",
     website: "https://www.sd35.bc.ca/bss",
+    jtbPrograms: jtbBuild(jtbScheduleCA, [179.6, 268.7, 469.7]),
     country: "CA", city: "Vancouver", cityZh: "温哥华（兰利）", cityJa: "バンクーバー（ラングレー）", cityEn: "Vancouver (Langley)",
     type: "coed", isPrivate: false, founded: null, students: 1100, intlStudents: 140, grades: "8–12",
     climate: { summer: "14–22°C", winter: "1–7°C", typeZh: "海洋性", typeJa: "海洋性", typeEn: "Oceanic", rainZh: "冬季多", rainJa: "冬に多い", rainEn: "Heavy in winter", humidityZh: "高", humidityJa: "高い", humidityEn: "High" },
@@ -212,6 +240,7 @@ const schoolsData = [
     id: 10, name: "King's Way Christian School",
     nameZh: "国王之路基督教学校", nameJa: "キングスウェイクリスチャンスクール", nameEn: "King's Way Christian School",
     website: "https://www.kwcs.org",
+    jtbPrograms: jtbBuild(jtbScheduleCA, [265.5, 359.9, 668.3]),
     country: "US", city: "Portland", cityZh: "波特兰", cityJa: "ポートランド", cityEn: "Portland",
     type: "coed", isPrivate: true, founded: 1971, students: 1100, intlStudents: 20, grades: "K–12",
     climate: { summer: "14–28°C", winter: "2–7°C", typeZh: "地中海（温暖夏季型）", typeJa: "地中海性（温暖な夏）", typeEn: "Mediterranean (warm summer)", rainZh: "冬季多·夏季极少", rainJa: "冬に多く夏はほぼなし", rainEn: "Very wet winters, dry summers", humidityZh: "冬高·夏中", humidityJa: "冬は高く夏は中程度", humidityEn: "High winter, moderate summer" },
@@ -318,6 +347,19 @@ function RatingDots({ value, max = 5 }) {
 function getLocal(obj, lang, field) {
   const suffix = lang === "zh" ? "Zh" : lang === "ja" ? "Ja" : "En";
   return obj[field + suffix] || obj[field] || "";
+}
+
+function formatMonths(m, lang) {
+  if (m === 12) return lang === "en" ? "1 year" : "1年";
+  if (lang === "zh") return `${m} 个月`;
+  if (lang === "ja") return `${m} ヶ月`;
+  return `${m} months`;
+}
+
+function formatFee(manYen, lang) {
+  if (lang === "en") return `¥${(manYen * 10000).toLocaleString("en-US")}`;
+  const s = manYen.toFixed(1).replace(/\.0$/, "");
+  return `${s} 万円`;
 }
 
 export default function App() {
@@ -509,7 +551,29 @@ export default function App() {
                     ) },
                     { label: L.activities, content: <div style={{ fontSize: 13, color: "#4A3F32", lineHeight: 1.7 }}>{getLocal(selected, lang, "activities")}</div> },
                     { label: L.accommodation, content: <div style={{ fontSize: 13, color: "#4A3F32" }}>{getLocal(selected, lang, "accommodation")}</div> },
-                  ].map((section, i) => (
+                    selected.jtbPrograms && {
+                      label: `${L.jtbTitle} · ${L.jtbDeparture}`,
+                      content: (
+                        <div>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                            {selected.jtbPrograms.map((p, i) => (
+                              <div key={i} style={{
+                                display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 12,
+                                alignItems: "center", padding: "8px 12px",
+                                backgroundColor: "#FAF8F3", borderRadius: 2,
+                                border: "1px solid rgba(168, 137, 92, 0.12)",
+                              }}>
+                                <span style={{ fontSize: 12, fontWeight: 600, color: "#A8895C", minWidth: 48 }}>{formatMonths(p.months, lang)}</span>
+                                <span style={{ fontSize: 12, color: "#6B5D4D", fontVariantNumeric: "tabular-nums" }}>{getLocal(p, lang, "schedule")}</span>
+                                <span style={{ fontSize: 13, fontWeight: 600, color: "#2C2418", fontFamily: '"IBM Plex Sans", sans-serif', fontVariantNumeric: "tabular-nums" }}>{formatFee(p.feeManYen, lang)}</span>
+                              </div>
+                            ))}
+                          </div>
+                          <div style={{ fontSize: 10.5, color: "#8A7A60", marginTop: 8, lineHeight: 1.6 }}>{L.jtbDisclaimer}</div>
+                        </div>
+                      ),
+                    },
+                  ].filter(Boolean).map((section, i) => (
                     <div key={i} style={{ marginBottom: 16 }}>
                       <div style={{ fontSize: 11, letterSpacing: "0.05em", color: "#A8895C", marginBottom: 6, fontWeight: 500 }}>{section.label}</div>
                       {section.content}
