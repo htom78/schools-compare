@@ -117,6 +117,7 @@ const schoolsData = [
     nameZh: "米查姆女子高中", nameJa: "ミッチャムガールズハイスクール", nameEn: "Mitcham Girls High School",
     website: "https://www.mitchamgirlshs.sa.edu.au",
     jtbPrograms: jtbBuild(jtbScheduleAU, [161.5, 277.3, 489.4]),
+    jtbRegionalZh: "阿德莱德州（同地区学校共用）", jtbRegionalJa: "アデレード州（同地区の学校で共通）", jtbRegionalEn: "Adelaide region (shared across schools)",
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "girls", isPrivate: false, founded: 1964, students: 830, intlStudents: 20, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
@@ -130,6 +131,8 @@ const schoolsData = [
     id: 2, name: "Charles Campbell College",
     nameZh: "查尔斯坎贝尔学院", nameJa: "チャールズキャンベルカレッジ", nameEn: "Charles Campbell College",
     website: "https://www.ccc.sa.edu.au",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [161.5, 277.3, 489.4]),
+    jtbRegionalZh: "阿德莱德州（同地区学校共用）", jtbRegionalJa: "アデレード州（同地区の学校で共通）", jtbRegionalEn: "Adelaide region (shared across schools)",
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "coed", isPrivate: false, founded: 1992, students: 850, intlStudents: 50, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
@@ -143,6 +146,8 @@ const schoolsData = [
     id: 3, name: "Mitchelton State High School",
     nameZh: "米切尔顿州立高中", nameJa: "ミッチェルトンステイトハイスクール", nameEn: "Mitchelton State High School",
     website: "https://mitcheltonshs.eq.edu.au",
+    jtbPrograms: jtbBuild(jtbScheduleAU, [172.5, 299.8, 541.5]),
+    jtbRegionalZh: "布里斯班州（同地区学校共用）", jtbRegionalJa: "ブリスベン州（同地区の学校で共通）", jtbRegionalEn: "Brisbane region (shared across schools)",
     country: "AU", city: "Brisbane", cityZh: "布里斯班", cityJa: "ブリスベン", cityEn: "Brisbane",
     type: "coed", isPrivate: false, founded: 1956, students: 500, intlStudents: 30, grades: "7–12",
     climate: { summer: "21–30°C", winter: "11–21°C", typeZh: "亚热带", typeJa: "亜熱帯", typeEn: "Subtropical", rainZh: "夏季较多", rainJa: "夏に多い", rainEn: "Heavy in summer", humidityZh: "中〜高", humidityJa: "中〜高", humidityEn: "Medium–High" },
@@ -157,6 +162,7 @@ const schoolsData = [
     nameZh: "凯德隆州立高中", nameJa: "ケドロンステイトハイスクール", nameEn: "Kedron State High School",
     website: "https://kedronshs.eq.edu.au",
     jtbPrograms: jtbBuild(jtbScheduleAU, [172.5, 299.8, 541.5]),
+    jtbRegionalZh: "布里斯班州（同地区学校共用）", jtbRegionalJa: "ブリスベン州（同地区の学校で共通）", jtbRegionalEn: "Brisbane region (shared across schools)",
     country: "AU", city: "Brisbane", cityZh: "布里斯班", cityJa: "ブリスベン", cityEn: "Brisbane",
     type: "coed", isPrivate: false, founded: 1956, students: 1500, intlStudents: 45, grades: "7–12",
     climate: { summer: "21–30°C", winter: "11–21°C", typeZh: "亚热带", typeJa: "亜熱帯", typeEn: "Subtropical", rainZh: "夏季较多", rainJa: "夏に多い", rainEn: "Heavy in summer", humidityZh: "中〜高", humidityJa: "中〜高", humidityEn: "Medium–High" },
@@ -555,6 +561,11 @@ export default function App() {
                       label: `${L.jtbTitle} · ${L.jtbDeparture}`,
                       content: (
                         <div>
+                          {getLocal(selected, lang, "jtbRegional") && (
+                            <div style={{ fontSize: 11, color: "#A8895C", marginBottom: 6, fontStyle: "italic" }}>
+                              · {getLocal(selected, lang, "jtbRegional")}
+                            </div>
+                          )}
                           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                             {selected.jtbPrograms.map((p, i) => (
                               <div key={i} style={{
