@@ -501,9 +501,9 @@ export default function App() {
                     )) },
                     { label: L.climate, content: (
                       <div style={{ fontSize: 12, color: "#4A3F32", lineHeight: 1.8 }}>
-                        {L.climateType}：{getLocal(selected.climate, lang, "type")}　
+                        {L.climateType}：{getLocal(selected.climate, lang, "type")}{"　"}
                         {L.summer} {selected.climate.summer}　{L.winter} {selected.climate.winter}<br />
-                        {L.rain}：{getLocal(selected.climate, lang, "rain")}　
+                        {L.rain}：{getLocal(selected.climate, lang, "rain")}{"　"}
                         {L.humidity}：{getLocal(selected.climate, lang, "humidity")}
                       </div>
                     ) },
