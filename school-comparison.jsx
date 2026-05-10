@@ -94,7 +94,7 @@ const schoolsData = [
   {
     id: 1, name: "Mitcham Girls High School",
     nameZh: "米查姆女子高中", nameJa: "ミッチャムガールズハイスクール", nameEn: "Mitcham Girls High School",
-    website: "https://www.mghs.sa.edu.au",
+    website: "https://www.mitchamgirlshs.sa.edu.au",
     country: "AU", city: "Adelaide", cityZh: "阿德莱德", cityJa: "アデレード", cityEn: "Adelaide",
     type: "girls", isPrivate: false, founded: 1964, students: 830, intlStudents: 20, grades: "7–12",
     climate: { summer: "16–29°C", winter: "8–16°C", typeZh: "地中海性", typeJa: "地中海性", typeEn: "Mediterranean", rainZh: "少", rainJa: "少ない", rainEn: "Low", humidityZh: "低", humidityJa: "低い", humidityEn: "Low" },
