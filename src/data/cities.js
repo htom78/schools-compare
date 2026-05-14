@@ -141,17 +141,18 @@ export const citiesData = [
   },
 ];
 
+// 六维评分。reviews=网络口碑；access=通达便利（综合东京直飞 + 市区/郊区位置 + 公交便利度）。
 export const ratings = [
-  { name: "Mitcham Girls", city: "Adelaide", climate: 4, culture: 4, history: 3, academic: 4 },
-  { name: "Charles Campbell", city: "Adelaide", climate: 4, culture: 4, history: 2, academic: 3 },
-  { name: "Mitchelton SHS", city: "Brisbane", climate: 3, culture: 4, history: 3, academic: 3 },
-  { name: "Kedron SHS", city: "Brisbane", climate: 3, culture: 4, history: 3, academic: 4 },
-  { name: "Auckland Girls'", city: "Auckland", climate: 4, culture: 5, history: 5, academic: 5 },
-  { name: "Onehunga HS", city: "Auckland", climate: 4, culture: 4, history: 3, academic: 4 },
-  { name: "Henderson HS", city: "Auckland", climate: 4, culture: 4, history: 3, academic: 3 },
-  { name: "Hugh Boyd", city: "Vancouver", climate: 3, culture: 5, history: 3, academic: 4 },
-  { name: "Brookswood", city: "Vancouver", climate: 3, culture: 4, history: 2, academic: 3 },
-  { name: "King's Way", city: "Portland", climate: 4, culture: 4, history: 3, academic: 4 },
+  { name: "Mitcham Girls", city: "Adelaide", climate: 4, culture: 4, history: 3, academic: 4, reviews: 4, access: 3 },
+  { name: "Charles Campbell", city: "Adelaide", climate: 4, culture: 4, history: 2, academic: 3, reviews: 4, access: 2 },
+  { name: "Mitchelton SHS", city: "Brisbane", climate: 3, culture: 4, history: 3, academic: 3, reviews: 3, access: 3 },
+  { name: "Kedron SHS", city: "Brisbane", climate: 3, culture: 4, history: 3, academic: 4, reviews: 3, access: 4 },
+  { name: "Auckland Girls'", city: "Auckland", climate: 4, culture: 5, history: 5, academic: 5, reviews: 4, access: 5 },
+  { name: "Onehunga HS", city: "Auckland", climate: 4, culture: 4, history: 3, academic: 4, reviews: 3, access: 4 },
+  { name: "Henderson HS", city: "Auckland", climate: 4, culture: 4, history: 3, academic: 3, reviews: 2, access: 3 },
+  { name: "Hugh Boyd", city: "Vancouver", climate: 3, culture: 5, history: 3, academic: 4, reviews: 3, access: 3 },
+  { name: "Brookswood", city: "Vancouver", climate: 3, culture: 4, history: 2, academic: 3, reviews: 3, access: 2 },
+  { name: "King's Way", city: "Portland", climate: 4, culture: 4, history: 3, academic: 4, reviews: 3, access: 2 },
 ];
 
 // 各国示例课表（来源：各国 PDF「サンプル時間割」页，代表性样本）。

@@ -426,7 +426,7 @@ export default function App() {
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, lineHeight: 1.6 }}>
                 <thead>
                   <tr style={{ borderBottom: "1.5px solid rgba(0,0,0,0.12)" }}>
-                    {[L.school, L.climateComfort, L.cultureEnv, L.schoolHistory, L.academicQuality].map((h, i) => (
+                    {[L.school, L.climateComfort, L.cultureEnv, L.schoolHistory, L.academicQuality, L.reviewRating, L.accessRating].map((h, i) => (
                       <th key={i} style={{ textAlign: i === 0 ? "left" : "center", padding: "8px 10px", fontWeight: 500, color: "#8A7A60", fontSize: 11 }}>{h}</th>
                     ))}
                   </tr>
@@ -438,7 +438,7 @@ export default function App() {
                         <div style={{ fontWeight: 500, color: "#2C2418" }}>{row.name}</div>
                         <div style={{ fontSize: 11, color: "#8A7A60" }}>{row.city}</div>
                       </td>
-                      {[row.climate, row.culture, row.history, row.academic].map((v, j) => (
+                      {[row.climate, row.culture, row.history, row.academic, row.reviews, row.access].map((v, j) => (
                         <td key={j} style={{ textAlign: "center", padding: "8px 6px" }}><RatingDots value={v} /></td>
                       ))}
                     </tr>
@@ -446,6 +446,7 @@ export default function App() {
                 </tbody>
               </table>
             </div>
+            <div style={{ fontSize: 11, color: "#8A7A60", margin: "-16px 0 28px", lineHeight: 1.7 }}>{L.ratingNote}</div>
 
             <h3 style={{ fontSize: 16, fontFamily: serifFont, fontWeight: 600, margin: "0 0 14px" }}>{L.analysisTitle}</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
