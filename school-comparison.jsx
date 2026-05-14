@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { t } from "./src/data/i18n.js";
 import { schoolsData, countryFlag } from "./src/data/schools.js";
 import { citiesData, ratings, sampleTimetables } from "./src/data/cities.js";
@@ -13,6 +13,21 @@ function RatingDots({ value, max = 5 }) {
       ))}
     </span>
   );
+}
+
+// 窄屏检测（≤719px 视为移动版）
+function useIsNarrow() {
+  const [narrow, setNarrow] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 719 : false,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 719px)");
+    const handler = (e) => setNarrow(e.matches);
+    mq.addEventListener("change", handler);
+    setNarrow(mq.matches);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return narrow;
 }
 
 function getLocal(obj, lang, field) {
@@ -120,6 +135,7 @@ export default function App() {
   const [filterCountry, setFilterCountry] = useState("ALL");
   const [selectedSchool, setSelectedSchool] = useState(null);
 
+  const isNarrow = useIsNarrow();
   const L = t[lang];
   const filtered = filterCountry === "ALL" ? schoolsData : schoolsData.filter((s) => s.country === filterCountry);
   const selected = schoolsData.find((s) => s.id === selectedSchool);
@@ -132,7 +148,7 @@ export default function App() {
   return (
     <div style={{ fontFamily: sansFont, backgroundColor: "#FAF8F3", color: "#2C2418", minHeight: "100vh", fontSize: 14, lineHeight: 1.75 }}>
       {/* Header */}
-      <div style={{ padding: "28px 24px 18px", borderBottom: "1px solid rgba(0,0,0,0.06)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
+      <div style={{ padding: isNarrow ? "20px 14px 14px" : "28px 24px 18px", borderBottom: "1px solid rgba(0,0,0,0.06)", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12 }}>
         <div>
           <h1 style={{ fontSize: 22, fontWeight: 600, margin: 0, lineHeight: 1.4, fontFamily: serifFont, color: "#1F1A14" }}>{L.title}</h1>
           <p style={{ fontSize: 13, color: "#8A7A60", margin: "6px 0 0", lineHeight: 1.6 }}>{L.subtitle}</p>
@@ -149,10 +165,10 @@ export default function App() {
       </div>
 
       {/* Tabs */}
-      <div style={{ display: "flex", gap: 0, padding: "0 24px", borderBottom: "1px solid rgba(0,0,0,0.06)", backgroundColor: "#F5F1E8" }}>
+      <div style={{ display: "flex", gap: 0, padding: isNarrow ? "0 8px" : "0 24px", borderBottom: "1px solid rgba(0,0,0,0.06)", backgroundColor: "#F5F1E8" }}>
         {[{ key: "city", label: L.tabCity }, { key: "school", label: L.tabSchool }, { key: "compare", label: L.tabCompare }].map((tab) => (
           <button key={tab.key} onClick={() => setActiveTab(tab.key)} style={{
-            padding: "12px 18px", fontSize: 13, fontFamily: "inherit",
+            padding: isNarrow ? "12px 12px" : "12px 18px", fontSize: 13, fontFamily: "inherit",
             fontWeight: activeTab === tab.key ? 600 : 400, color: activeTab === tab.key ? "#1F1A14" : "#8A7A60",
             backgroundColor: "transparent", border: "none",
             borderBottom: activeTab === tab.key ? "2px solid #A8895C" : "2px solid transparent",
@@ -161,7 +177,7 @@ export default function App() {
         ))}
       </div>
 
-      <div style={{ padding: "20px 24px 40px" }}>
+      <div style={{ padding: isNarrow ? "16px 14px 32px" : "20px 24px 40px" }}>
 
         {/* CITY TAB */}
         {activeTab === "city" && (
@@ -254,7 +270,7 @@ export default function App() {
               ))}
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: selected ? "1fr 1.2fr" : "1fr 1fr", gap: 12 }}>
+            <div style={{ display: "grid", gridTemplateColumns: isNarrow ? "1fr" : (selected ? "1fr 1.2fr" : "1fr 1fr"), gap: 12 }}>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {filtered.map((s) => (
                   <div key={s.id} onClick={() => setSelectedSchool(selectedSchool === s.id ? null : s.id)} style={{
@@ -285,7 +301,7 @@ export default function App() {
               </div>
 
               {selected && (
-                <div style={{ backgroundColor: "#F5F1E8", border: "1px solid rgba(0,0,0,0.06)", borderRadius: 4, padding: "20px", position: "sticky", top: 12, alignSelf: "start" }}>
+                <div style={{ backgroundColor: "#F5F1E8", border: "1px solid rgba(0,0,0,0.06)", borderRadius: 4, padding: isNarrow ? "16px" : "20px", position: isNarrow ? "static" : "sticky", top: 12, alignSelf: "start", order: isNarrow ? -1 : 0 }}>
                   <div style={{ marginBottom: 16 }}>
                     <div style={{ fontSize: 11, color: "#A8895C", letterSpacing: "0.05em" }}>
                       {countryFlag[selected.country]} {getLocal(selected, lang, "city")} · {L[selected.locTypeKey]} · {selected.type === "girls" ? L.girls : L.coed} · {selected.grades}{L.gradeLabel}
