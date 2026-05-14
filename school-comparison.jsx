@@ -439,11 +439,11 @@ export default function App() {
           <div>
             <h3 style={{ fontSize: 16, fontFamily: serifFont, fontWeight: 600, margin: "0 0 14px" }}>{L.fourDimensions}</h3>
             <div style={{ overflowX: "auto", marginBottom: 28 }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 12, lineHeight: 1.6 }}>
+              <table style={{ width: "100%", minWidth: 580, borderCollapse: "collapse", fontSize: 12, lineHeight: 1.6 }}>
                 <thead>
                   <tr style={{ borderBottom: "1.5px solid rgba(0,0,0,0.12)" }}>
                     {[L.school, L.climateComfort, L.cultureEnv, L.schoolHistory, L.academicQuality, L.reviewRating, L.accessRating].map((h, i) => (
-                      <th key={i} style={{ textAlign: i === 0 ? "left" : "center", padding: "8px 10px", fontWeight: 500, color: "#8A7A60", fontSize: 11 }}>{h}</th>
+                      <th key={i} style={{ textAlign: i === 0 ? "left" : "center", padding: "8px 10px", fontWeight: 500, color: "#8A7A60", fontSize: 11, whiteSpace: "nowrap" }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
@@ -451,7 +451,7 @@ export default function App() {
                   {ratings.map((row, i) => (
                     <tr key={i} style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
                       <td style={{ padding: "8px 10px" }}>
-                        <div style={{ fontWeight: 500, color: "#2C2418" }}>{row.name}</div>
+                        <div style={{ fontWeight: 500, color: "#2C2418", whiteSpace: "nowrap" }}>{row.name}</div>
                         <div style={{ fontSize: 11, color: "#8A7A60" }}>{row.city}</div>
                       </td>
                       {[row.climate, row.culture, row.history, row.academic, row.reviews, row.access].map((v, j) => (
