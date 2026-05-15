@@ -150,8 +150,8 @@ export const ratings = [
   { name: "Auckland Girls'", city: "Auckland", climate: 4, culture: 5, history: 5, academic: 5, reviews: 4, access: 5 },
   { name: "Onehunga HS", city: "Auckland", climate: 4, culture: 4, history: 3, academic: 4, reviews: 3, access: 4 },
   { name: "Henderson HS", city: "Auckland", climate: 4, culture: 4, history: 3, academic: 3, reviews: 2, access: 3 },
-  { name: "Hugh Boyd", city: "Vancouver", climate: 3, culture: 5, history: 3, academic: 4, reviews: 3, access: 3 },
-  { name: "Brookswood", city: "Vancouver", climate: 3, culture: 4, history: 2, academic: 3, reviews: 3, access: 2 },
+  { name: "Richmond 学区 (SD38)", city: "Vancouver", climate: 3, culture: 5, history: 3, academic: 4, reviews: 3, access: 3 },
+  { name: "Langley 学区 (SD35)", city: "Vancouver", climate: 3, culture: 4, history: 2, academic: 3, reviews: 3, access: 2 },
   { name: "King's Way", city: "Portland", climate: 4, culture: 4, history: 3, academic: 4, reviews: 3, access: 2 },
 ];
 

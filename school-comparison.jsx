@@ -282,6 +282,7 @@ export default function App() {
                       <span style={{ fontSize: 11, letterSpacing: "0.05em", color: "#8A7A60" }}>
                         {countryFlag[s.country]} {getLocal(s, lang, "city")}
                         <span style={{ marginLeft: 6, color: "#A8895C" }}>· {L[s.locTypeKey]}</span>
+                        {s.isDistrict && <span style={{ marginLeft: 6, color: "#A8895C", fontWeight: 500 }}>· {L.districtTag}</span>}
                         {s.isPrivate && <span style={{ marginLeft: 6, color: "#A8895C", fontWeight: 500 }}>★ {L.privateSchool}</span>}
                       </span>
                       <span style={{ fontSize: 11, color: "#8A7A60" }}>{s.type === "girls" ? L.girls : L.coed}</span>
@@ -292,9 +293,18 @@ export default function App() {
                     </div>
                     {lang !== "en" && <div style={{ fontSize: 12, color: "#6B5D4D" }}>{getLocal(s, lang, "name")}</div>}
                     <div style={{ marginTop: 10, display: "flex", gap: 16, fontSize: 11, color: "#8A7A60", flexWrap: "wrap" }}>
-                      <span>{L.students} {s.students}</span>
-                      <span>{L.intl} {s.intlStudents}</span>
-                      {s.founded && <span>{L.founded} {s.founded}{L.year}</span>}
+                      {s.isDistrict ? (
+                        <>
+                          <span>{L.numSchoolsLabel} {s.numSchools}</span>
+                          <span>{L.repSchoolTag}: {s.repSchool}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>{L.students} {s.students}</span>
+                          <span>{L.intl} {s.intlStudents}</span>
+                          {s.founded && <span>{L.founded} {s.founded}{L.year}</span>}
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -305,6 +315,7 @@ export default function App() {
                   <div style={{ marginBottom: 16 }}>
                     <div style={{ fontSize: 11, color: "#A8895C", letterSpacing: "0.05em" }}>
                       {countryFlag[selected.country]} {getLocal(selected, lang, "city")} · {L[selected.locTypeKey]} · {selected.type === "girls" ? L.girls : L.coed} · {selected.grades}{L.gradeLabel}
+                      {selected.isDistrict && <span style={{ marginLeft: 6 }}>· {L.districtTag} ({selected.districtCode})</span>}
                       {selected.isPrivate && <span style={{ marginLeft: 6 }}>· ★ {L.privateSchool}</span>}
                     </div>
                     <h2 style={{ fontSize: 18, fontWeight: 600, margin: "6px 0 2px", fontFamily: serifFont }}>{selected.name}</h2>
@@ -342,7 +353,10 @@ export default function App() {
                   </div>
 
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 18 }}>
-                    {[{ val: selected.students, label: L.students }, { val: selected.intlStudents, label: L.intl }, { val: selected.founded || "—", label: L.founded }].map((d, i) => (
+                    {(selected.isDistrict
+                      ? [{ val: selected.numSchools, label: L.numSchoolsLabel }, { val: selected.repStudents, label: L.repStudentsLabel }, { val: selected.repIntlStudents, label: L.repIntlLabel }]
+                      : [{ val: selected.students, label: L.students }, { val: selected.intlStudents, label: L.intl }, { val: selected.founded || "—", label: L.founded }]
+                    ).map((d, i) => (
                       <div key={i} style={{ textAlign: "center", padding: "10px 0", backgroundColor: "#FAF8F3", borderRadius: 2 }}>
                         <div style={{ fontSize: 20, fontWeight: 600, fontFamily: '"IBM Plex Sans", sans-serif', fontVariantNumeric: "tabular-nums" }}>{d.val}</div>
                         <div style={{ fontSize: 11, color: "#8A7A60" }}>{d.label}</div>
@@ -362,6 +376,27 @@ export default function App() {
                         {getLocal(selected, lang, "location")}
                       </div>
                     ) },
+                    selected.isDistrict && selected.schoolList && {
+                      label: `${L.schoolsInDistrict} (${selected.schoolList.length})`,
+                      content: (
+                        <div>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                            {selected.schoolList.map((sc, i) => (
+                              <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12.5, color: "#4A3F32", padding: "4px 8px", backgroundColor: sc.isRep ? "rgba(168,137,92,0.08)" : "transparent", borderRadius: 2 }}>
+                                <span style={{ color: sc.isRep ? "#9B6E47" : "#A8895C", minWidth: 14 }}>{sc.isRep ? "◇" : "·"}</span>
+                                {sc.url ? (
+                                  <a href={sc.url} target="_blank" rel="noopener noreferrer" style={{ color: "#4A3F32", textDecoration: "none", borderBottom: "1px dotted rgba(168,137,92,0.5)" }}>{sc.name}</a>
+                                ) : (
+                                  <span>{sc.name}</span>
+                                )}
+                                {sc.isRep && <span style={{ marginLeft: "auto", fontSize: 10.5, color: "#9B6E47", fontWeight: 500 }}>{L.repSchoolTag}</span>}
+                              </div>
+                            ))}
+                          </div>
+                          <div style={{ fontSize: 10.5, color: "#8A7A60", marginTop: 8, lineHeight: 1.6 }}>{L.pickAfterArrival}</div>
+                        </div>
+                      ),
+                    },
                     { label: L.reviews, content: (
                       <div style={{ fontSize: 13, color: "#4A3F32", lineHeight: 1.75 }}>
                         <div style={{ fontWeight: 500, color: "#2C2418", marginBottom: 2 }}>{getLocal(selected, lang, "reviewScore")}</div>
